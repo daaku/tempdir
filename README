@@ -1,0 +1,34 @@
+tempdir
+=======
+
+
+Summary
+-------
+Like tempfile, but for directories.
+
+
+Contact
+-------
+If you have suggestions or patches - or want to drop me a comment:
+  Naitik Shah <naitik.shah [_a_t_] yahoo [_d_o_t] com>
+
+
+Installation
+------------
+  # gem install tempdir
+
+
+Usage
+-----
+
+WARNING: The temp directory will be automatically 'rm -rf'ed. So dont store
+non-temporary things in there. If a block is given, this will happen as soon as
+the block has finished executing. Otherwise then the finalizer is called on the
+returned object.
+
+Examples:
+require 'tempdir'
+dir = Tempdir.new('my-basename')
+puts dir.path
+
+Tempdir.new('my-basename') { |d| puts d.path }
